@@ -181,7 +181,7 @@ See **02-domain-breakdown.md** for full task-level detail.
 2. **One** high-quality question bank (**Tutorials Dojo** OR Skill Builder enhanced official practice exam)
 3. **Four** timed 65-question simulations with answer review
 4. **~8–12 hours** hands-on: Feature Store, one Pipeline, one endpoint type, Model Monitor baseline
-5. **03-cheat-sheet.md** in last 48 hours
+5. **06-cheat-sheet-last-24h.md** in last 48 hours
 
 ### Low-value activities to skip
 
