@@ -48,8 +48,9 @@
 | 1 | [Official Exam Guide PDF](https://d1.awsstatic.com/training-and-certification/docs-machine-learning-engineer-associate/AWS-Certified-Machine-Learning-Engineer-Associate_Exam-Guide.pdf) | Source of truth for domains, in/out of scope |
 | 2 | **Tutorials Dojo** practice exams + explanations | Most cited for realistic scenario wording |
 | 3 | **AWS Skill Builder** Exam Prep Plan (free question set + pretest; paid enhanced + official practice exam) | Aligns to current blueprint |
-| 4 | **Hands-on:** SageMaker Pipelines, Model Registry, Model Monitor, deployment modes | Exam is operational, not math-heavy |
-| 5 | Stephane Maarek Udemy (optional) | Good breadth; **low time-efficiency** if experienced — use 1.5x speed + skip labs you know |
+| 4 | **[Greciano MLA-C01 Notion notes](https://psychedelic-cuticle-e74.notion.site/AWS-Machine-Learning-Engineer-Associate-MLA-C01-19686c7395e780e1bab0eac37d0401a0)** (free v3) + `07-notion-study-crosswalk.md` | Deep study; author passed Jan 2025; ~45-day path |
+| 5 | **Hands-on:** SageMaker Pipelines, Model Registry, Model Monitor, deployment modes | Exam is operational, not math-heavy |
+| 6 | Stephane Maarek + Kane Udemy (optional) | Matches Notion source material; video if you want lectures |
 
 ### Topics = most exam questions
 
