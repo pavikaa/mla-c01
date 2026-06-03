@@ -2,10 +2,124 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url=quiz.html" />
-  <title>MLA-C01 Practice Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#141b24" />
+  <meta name="description" content="AWS MLA-C01 exam prep — study guides, quiz, and cheat sheets in one place." />
+  <title>MLA-C01 Study Hub</title>
+  <link rel="stylesheet" href="assets/site.css" />
 </head>
-<body>
-  <p><a href="quiz.html">Open MLA-C01 Practice Quiz</a></p>
+<body data-page="home">
+  <header class="site-header">
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+      <span class="sr-only">Open menu</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+    <div style="flex:1;min-width:0">
+      <a href="index.html" class="site-logo">MLA-C01 Hub</a>
+      <p class="subtitle">Machine Learning Engineer Associate</p>
+    </div>
+    <div class="header-actions">
+      <a href="quiz.html" class="btn btn-primary btn-sm">Quiz</a>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <nav class="site-nav" id="site-nav" aria-label="Study resources">
+      <div class="nav-section">Start</div>
+      <a class="nav-link" href="learn.html?doc=01-executive-summary-and-study-plan.md">Study plan</a>
+      <a class="nav-link" href="learn.html?doc=07-notion-study-crosswalk.md">Notion crosswalk</a>
+      <div class="nav-section">Guides</div>
+      <a class="nav-link" href="learn.html?doc=02-domain-breakdown.md">Domains</a>
+      <a class="nav-link" href="learn.html?doc=03-high-yield-notes.md">High-yield notes</a>
+      <a class="nav-link" href="learn.html?doc=08-supplemental-topics.md">Supplemental</a>
+      <a class="nav-link" href="learn.html?doc=06-cheat-sheet-last-24h.md">Cheat sheet</a>
+      <div class="nav-section">Practice</div>
+      <a class="nav-link" href="quiz.html">Interactive quiz (120)</a>
+      <a class="nav-link" href="learn.html?doc=05-practice-questions.md">Questions (text)</a>
+      <div class="nav-section">External</div>
+      <a class="nav-link" href="https://psychedelic-cuticle-e74.notion.site/AWS-Machine-Learning-Engineer-Associate-MLA-C01-19686c7395e780e1bab0eac37d0401a0" target="_blank" rel="noopener">Notion notes ↗</a>
+    </nav>
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <main class="main-content">
+      <div class="home-hero">
+        <h2>AWS MLA-C01 Study Hub</h2>
+        <p>Readable guides on your phone, practice quiz, and cheat sheets — everything in one place.</p>
+      </div>
+
+      <div class="quick-actions">
+        <a href="learn.html?doc=01-executive-summary-and-study-plan.md" class="btn">Study plan</a>
+        <a href="quiz.html" class="btn btn-primary">Start quiz</a>
+        <a href="learn.html?doc=06-cheat-sheet-last-24h.md" class="btn">Cheat sheet</a>
+      </div>
+
+      <p class="section-title">Study guides</p>
+      <div class="card-grid">
+        <a class="resource-card" href="learn.html?doc=01-executive-summary-and-study-plan.md">
+          <span class="icon">📋</span>
+          <h3>Executive summary</h3>
+          <p>Study time, ROI resources, 1–4 week plans, pass probability.</p>
+        </a>
+        <a class="resource-card" href="learn.html?doc=07-notion-study-crosswalk.md">
+          <span class="icon">🔗</span>
+          <h3>Notion crosswalk</h3>
+          <p>Map free Greciano Notion notes to this repo (~45 days).</p>
+        </a>
+        <a class="resource-card" href="learn.html?doc=02-domain-breakdown.md">
+          <span class="icon">📊</span>
+          <h3>Domain breakdown</h3>
+          <p>28/26/22/24 weights, traps, difficulty per domain.</p>
+        </a>
+        <a class="resource-card" href="learn.html?doc=03-high-yield-notes.md">
+          <span class="icon">⚡</span>
+          <h3>High-yield notes</h3>
+          <p>SageMaker, endpoints, metrics, managed AI services.</p>
+        </a>
+        <a class="resource-card" href="learn.html?doc=08-supplemental-topics.md">
+          <span class="icon">➕</span>
+          <h3>Supplemental topics</h3>
+          <p>Bedrock, FSx, MSK Serverless, CI/CD, inference matching.</p>
+        </a>
+        <a class="resource-card" href="learn.html?doc=06-cheat-sheet-last-24h.md">
+          <span class="icon">🎯</span>
+          <h3>Last 24h cheat sheet</h3>
+          <p>Final cram before exam day.</p>
+        </a>
+      </div>
+
+      <p class="section-title">Practice</p>
+      <div class="card-grid">
+        <a class="resource-card featured" href="quiz.html">
+          <span class="icon">✅</span>
+          <h3>Interactive quiz</h3>
+          <p>120 questions · timed exam mode · explanations · mobile-friendly.</p>
+        </a>
+        <a class="resource-card" href="learn.html?doc=05-practice-questions.md">
+          <span class="icon">📝</span>
+          <h3>Practice questions (text)</h3>
+          <p>All 120 Q&A with explanations — read-only reference.</p>
+        </a>
+        <a class="resource-card" href="04-flashcards-anki.txt" download>
+          <span class="icon">🃏</span>
+          <h3>Anki flashcards</h3>
+          <p>235 cards — download & import into Anki mobile.</p>
+        </a>
+      </div>
+
+      <p class="external-note">
+        <strong>Mobile / local:</strong> Guides load via browser — use
+        <a href="https://pavikaa.github.io/mla-c01/">GitHub Pages</a> or run
+        <code>python3 -m http.server 8080</code> in this folder (file:// won’t load markdown).<br><br>
+        <strong>Tip:</strong> Use the menu (☰) on mobile to jump between guides. For deep reading, pair with
+        <a href="https://psychedelic-cuticle-e74.notion.site/AWS-Machine-Learning-Engineer-Associate-MLA-C01-19686c7395e780e1bab0eac37d0401a0" target="_blank" rel="noopener">Christian Greciano’s free Notion notes</a>.
+        Official blueprint:
+        <a href="https://d1.awsstatic.com/training-and-certification/docs-machine-learning-engineer-associate/AWS-Certified-Machine-Learning-Engineer-Associate_Exam-Guide.pdf" target="_blank" rel="noopener">AWS exam guide PDF</a>.
+      </p>
+    </main>
+  </div>
+
+  <script src="assets/site.js"></script>
 </body>
 </html>

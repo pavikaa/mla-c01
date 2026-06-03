@@ -17,6 +17,23 @@ Generated June 2026 from official AWS exam guide (April 2025 English update), co
 | `07-notion-study-crosswalk.md` | Maps free Notion notes → repo study flow (~45 days) |
 | `08-supplemental-topics.md` | Bedrock, Domain, FSx, MSK, pitfalls (Notion-aligned) |
 
+## Study hub (mobile-friendly website)
+
+Open **`index.html`** — home page with links to all guides and the quiz.
+
+| Page | URL |
+|------|-----|
+| Home | `index.html` |
+| Study guides (rendered MD) | `learn.html?doc=03-high-yield-notes.md` |
+| Quiz | `quiz.html` |
+
+**Hosting:** Markdown pages need HTTP (not `file://`). Use [GitHub Pages](https://pavikaa.github.io/mla-c01/) or:
+
+```bash
+cd aws-mla-c01-prep && python3 -m http.server 8080
+# http://localhost:8080
+```
+
 ## Interactive practice quiz
 
 Open **`quiz.html`** in a browser (double-click works — questions are embedded).
