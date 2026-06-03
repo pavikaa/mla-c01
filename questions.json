@@ -1,0 +1,1973 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "type": "single",
+    "stem": "A fintech stores 5 TB of transaction data in S3 as CSV. Training jobs read the same columns repeatedly. What is the MOST cost-effective format change to improve training I/O?",
+    "options": {
+      "A": "Convert to JSON lines",
+      "B": "Convert to Apache Parquet",
+      "C": "Store as Avro only in Kinesis",
+      "D": "Duplicate data in DynamoDB"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "Parquet is columnar and compressed, reducing scan cost and SageMaker training time for tabular ML.",
+    "wrongWhy": {
+      "A": "JSON is row-oriented and verbose for analytics.",
+      "C": "Avro is valid but Parquet dominates S3 analytics ML.",
+      "D": "DynamoDB wrong for bulk training scans."
+    }
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "type": "multi",
+    "stem": "A company needs low-latency feature retrieval at inference AND batch features for nightly retraining. Which TWO capabilities should they implement? (Select TWO)",
+    "options": {
+      "A": "SageMaker Feature Store online store for real-time inference lookups",
+      "B": "Amazon Athena as the sole feature serving layer",
+      "C": "Amazon Kinesis Data Firehose to replace feature storage",
+      "D": "SageMaker Feature Store offline store for batch training pipelines",
+      "E": "AWS Glue DataBrew only, with no feature persistence layer"
+    },
+    "correct": [
+      "A",
+      "D"
+    ],
+    "explanation": "Feature Store online + offline stores give consistent features for inference and batch retraining\u2014the canonical exam pattern.",
+    "wrongWhy": {
+      "B": "Athena queries data but is not a feature serving layer.",
+      "C": "Firehose ingests streams, not feature management.",
+      "E": "DataBrew prepares data but not serve features at inference."
+    }
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "type": "single",
+    "stem": "A team must visually profile, clean, and transform data without writing Spark code. Which service should they choose?",
+    "options": {
+      "A": "AWS Glue DataBrew",
+      "B": "AWS Batch",
+      "C": "Amazon EMR only",
+      "D": "AWS Lambda exclusively"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "DataBrew is the visual data preparation service.",
+    "wrongWhy": {
+      "B": "Batch runs jobs but no visual prep.",
+      "C": "EMR needs Spark coding.",
+      "D": "Lambda limited for large transforms."
+    }
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "type": "single",
+    "stem": "Before training a credit model, engineers must detect if one demographic has disproportionately fewer positive labels. Which metric/tool pair is appropriate?",
+    "options": {
+      "A": "RMSE with Debugger",
+      "B": "Difference in Proportions of Labels (DPL) with SageMaker Clarify",
+      "C": "ROC-AUC with Model Monitor",
+      "D": "RMSE with Ground Truth"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "DPL is a pre-training bias metric; Clarify detects label proportion bias.",
+    "wrongWhy": {
+      "A": "RMSE is regression metric.",
+      "C": "Model Monitor is post-deployment.",
+      "D": "Ground Truth labels data."
+    }
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "type": "single",
+    "stem": "Real-time clickstream events must be ingested for feature computation with custom consumers. Which service?",
+    "options": {
+      "A": "Kinesis Data Firehose",
+      "B": "Kinesis Data Streams",
+      "C": "AWS DataSync",
+      "D": "Amazon SQS only"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "Streams allows custom real-time consumers; Firehose is fully managed delivery.",
+    "wrongWhy": {
+      "A": "Firehose not for custom consumer logic.",
+      "C": "DataSync is migration.",
+      "D": "SQS not primary stream ingest."
+    }
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "type": "single",
+    "stem": "A healthcare company must identify PHI in S3 buckets automatically. Which service?",
+    "options": {
+      "A": "AWS Macie",
+      "B": "Amazon Rekognition",
+      "C": "AWS WAF",
+      "D": "Amazon GuardDuty"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Macie discovers sensitive data including PII/PHI patterns in S3.",
+    "wrongWhy": {
+      "B": "Rekognition is vision.",
+      "C": "WAF protects web apps.",
+      "D": "GuardDuty is threat detection."
+    }
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "type": "ordering",
+    "stem": "Order the steps to prepare data for SageMaker training from raw S3 CSV:",
+    "options": {
+      "1": "Register features in Feature Store",
+      "2": "Ingest and validate schema",
+      "3": "Split train/validation/test",
+      "4": "Transform and engineer features"
+    },
+    "correct": [
+      "2",
+      "4",
+      "3",
+      "1"
+    ],
+    "explanation": "Ingest/validate \u2192 transform \u2192 split \u2192 optional Feature Store registration for reuse.",
+    "wrongWhy": {}
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "type": "single",
+    "stem": "A labeling project needs human annotators with workflow quality control for image bounding boxes. Best choice?",
+    "options": {
+      "A": "SageMaker Ground Truth",
+      "B": "Amazon Polly",
+      "C": "Amazon Translate",
+      "D": "AWS CloudFormation"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Ground Truth manages labeling workflows at scale.",
+    "wrongWhy": {
+      "B": "Polly is text-to-speech.",
+      "C": "Translate is language.",
+      "D": "CloudFormation is IaC."
+    }
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "type": "single",
+    "stem": "Class imbalance causes poor recall on minority class. Which approach is MOST appropriate?",
+    "options": {
+      "A": "Use accuracy as sole metric",
+      "B": "Apply stratified sampling and consider oversampling/SMOTE-class techniques",
+      "C": "Remove minority class",
+      "D": "Disable validation"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "Stratified splits and resampling address imbalance; accuracy alone misleads.",
+    "wrongWhy": {
+      "A": "Accuracy misleading.",
+      "C": "Removes critical class.",
+      "D": "Validation required."
+    }
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "type": "single",
+    "stem": "Training data must be mounted with POSIX semantics across multiple training instances. Which storage?",
+    "options": {
+      "A": "Amazon S3 standard",
+      "B": "Amazon EFS",
+      "C": "Amazon Glacier",
+      "D": "AWS Snowball Edge only"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "EFS provides shared POSIX file system for multi-node training.",
+    "wrongWhy": {
+      "A": "S3 object not POSIX mount.",
+      "C": "Glacier archival.",
+      "D": "Snowball migration device."
+    }
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "type": "single",
+    "stem": "Which service helps validate data quality rules in ML pipelines?",
+    "options": {
+      "A": "AWS Glue Data Quality",
+      "B": "Amazon Macie",
+      "C": "AWS CloudTrail",
+      "D": "Amazon Rekognition"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Validating rules on datasets in pipelines",
+    "wrongWhy": {
+      "B": "Macie finds sensitive data, not pipeline quality rules.",
+      "C": "CloudTrail audits API calls.",
+      "D": "Rekognition is computer vision."
+    }
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "type": "single",
+    "stem": "A team must combine batch data from Amazon RDS and Amazon S3 for ETL at scale. Best approach?",
+    "options": {
+      "A": "Amazon Athena only",
+      "B": "AWS Glue or Amazon EMR with Spark",
+      "C": "Amazon SNS",
+      "D": "AWS Lambda only"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "AWS Glue or EMR Spark",
+    "wrongWhy": {
+      "A": "Athena queries but does not orchestrate large multi-source ETL.",
+      "C": "SNS is messaging.",
+      "D": "Lambda alone is poor for large batch ETL."
+    }
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "type": "single",
+    "stem": "ML model artifacts in S3 must use customer-managed encryption keys. What should you configure?",
+    "options": {
+      "A": "SSE-S3 only",
+      "B": "Public bucket ACL",
+      "C": "SSE-KMS with CMK",
+      "D": "Disable encryption"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "SSE-KMS",
+    "wrongWhy": {
+      "A": "SSE-S3 does not use customer-managed KMS CMK.",
+      "B": "Public buckets violate security best practices.",
+      "D": "Encryption required for compliance scenarios."
+    }
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "type": "multi",
+    "stem": "Select TWO services suitable for streaming ETL into Amazon S3 (Select TWO).",
+    "options": {
+      "A": "Amazon Kinesis Data Firehose",
+      "B": "Amazon S3 Glacier",
+      "C": "Amazon Managed Service for Apache Flink",
+      "D": "Amazon Route 53",
+      "E": "AWS Snowball"
+    },
+    "correct": [
+      "A",
+      "C"
+    ],
+    "explanation": "Firehose delivers streams to S3; Managed Flink processes streams with stateful ETL.",
+    "wrongWhy": {
+      "B": "Glacier is archival.",
+      "D": "Route 53 is DNS.",
+      "E": "Snowball is offline migration."
+    }
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "type": "single",
+    "stem": "A fraud model flags many uncertain predictions. How reduce labeling cost while keeping quality?",
+    "options": {
+      "A": "Delete all uncertain predictions",
+      "B": "Train without labels",
+      "C": "Disable model monitoring",
+      "D": "Amazon Augmented AI (A2I) human review loops"
+    },
+    "correct": [
+      "D"
+    ],
+    "explanation": "Amazon A2I human review loops",
+    "wrongWhy": {
+      "A": "Throws away valuable edge cases.",
+      "B": "Supervised problems need labels.",
+      "C": "Monitoring does not solve labeling."
+    }
+  },
+  {
+    "id": 16,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Systematic HPO with Bayesian search:",
+    "options": {
+      "A": "SageMaker Automatic Model Tuning",
+      "B": "Option B",
+      "C": "Option C",
+      "D": "Option D"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "SageMaker Automatic Model Tuning",
+    "wrongWhy": {}
+  },
+  {
+    "id": 17,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Training loss flat but gradients vanishing:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "SageMaker Debugger",
+      "C": "Option C",
+      "D": "Option D"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "SageMaker Debugger",
+    "wrongWhy": {}
+  },
+  {
+    "id": 18,
+    "domain": "D2",
+    "type": "single",
+    "stem": "No ML team; need image label detection API:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "Option B",
+      "C": "Amazon Rekognition",
+      "D": "Option D"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "Amazon Rekognition",
+    "wrongWhy": {}
+  },
+  {
+    "id": 19,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Version models and require approval before prod:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "Option B",
+      "C": "Option C",
+      "D": "SageMaker Model Registry"
+    },
+    "correct": [
+      "D"
+    ],
+    "explanation": "SageMaker Model Registry",
+    "wrongWhy": {}
+  },
+  {
+    "id": 20,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Imbalanced fraud detection metric emphasis:",
+    "options": {
+      "A": "F1, precision, recall",
+      "B": "Option B",
+      "C": "Option C",
+      "D": "Option D"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "F1, precision, recall",
+    "wrongWhy": {}
+  },
+  {
+    "id": 21,
+    "domain": "D2",
+    "type": "multi",
+    "stem": "A team needs foundation-model text generation with minimal ML infrastructure operations. Select TWO.",
+    "options": {
+      "A": "Train GPT from scratch on EC2",
+      "B": "Amazon Bedrock",
+      "C": "Amazon SageMaker JumpStart foundation models",
+      "D": "AWS Snowcone",
+      "E": "Amazon EBS snapshots"
+    },
+    "correct": [
+      "B",
+      "C"
+    ],
+    "explanation": "Bedrock and JumpStart provide FMs without building training clusters from scratch.",
+    "wrongWhy": {
+      "A": "High ops and cost.",
+      "D": "Edge migration device.",
+      "E": "Block storage snapshots unrelated."
+    }
+  },
+  {
+    "id": 22,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Compare new model safely without user impact:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "Shadow production variant",
+      "C": "Option C",
+      "D": "Option D"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "Shadow production variant",
+    "wrongWhy": {}
+  },
+  {
+    "id": 23,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Custom PyTorch training on SageMaker:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "Option B",
+      "C": "Script mode with ECR inference container",
+      "D": "Option D"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "Script mode with ECR inference container",
+    "wrongWhy": {}
+  },
+  {
+    "id": 24,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Tabular classification default built-in often:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "Option B",
+      "C": "Option C",
+      "D": "XGBoost"
+    },
+    "correct": [
+      "D"
+    ],
+    "explanation": "XGBoost",
+    "wrongWhy": {}
+  },
+  {
+    "id": 25,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Explain feature impact on predictions:",
+    "options": {
+      "A": "Clarify SHAP",
+      "B": "Option B",
+      "C": "Option C",
+      "D": "Option D"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Clarify SHAP",
+    "wrongWhy": {}
+  },
+  {
+    "id": 26,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Overfitting remedy:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "Regularization and more validation data",
+      "C": "Option C",
+      "D": "Option D"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "Regularization and more validation data",
+    "wrongWhy": {}
+  },
+  {
+    "id": 27,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Document entity extraction without custom NLP:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "Option B",
+      "C": "Amazon Comprehend",
+      "D": "Option D"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "Amazon Comprehend",
+    "wrongWhy": {}
+  },
+  {
+    "id": 28,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Autopilot vs AMT:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "Option B",
+      "C": "Option C",
+      "D": "Autopilot AutoML end-to-end; AMT tunes your estimator"
+    },
+    "correct": [
+      "D"
+    ],
+    "explanation": "Autopilot AutoML end-to-end; AMT tunes your estimator",
+    "wrongWhy": {}
+  },
+  {
+    "id": 29,
+    "domain": "D3",
+    "type": "single",
+    "stem": "Intermittent predictions no instance management:",
+    "options": {
+      "A": "Serverless inference",
+      "B": "Option B",
+      "C": "Option C",
+      "D": "Option D"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Serverless inference",
+    "wrongWhy": {}
+  },
+  {
+    "id": 30,
+    "domain": "D3",
+    "type": "single",
+    "stem": "100GB images queued long inference:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "Async endpoint",
+      "C": "Option C",
+      "D": "Option D"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "Async endpoint",
+    "wrongWhy": {}
+  },
+  {
+    "id": 31,
+    "domain": "D3",
+    "type": "single",
+    "stem": "Score 10M records offline:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "Option B",
+      "C": "Batch Transform",
+      "D": "Option D"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "Batch Transform",
+    "wrongWhy": {}
+  },
+  {
+    "id": 32,
+    "domain": "D3",
+    "type": "single",
+    "stem": "Native ML CI/CD DAG on SageMaker:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "Option B",
+      "C": "Option C",
+      "D": "SageMaker Pipelines"
+    },
+    "correct": [
+      "D"
+    ],
+    "explanation": "SageMaker Pipelines",
+    "wrongWhy": {}
+  },
+  {
+    "id": 33,
+    "domain": "D3",
+    "type": "single",
+    "stem": "Gradual production traffic to new model:",
+    "options": {
+      "A": "Canary deployment",
+      "B": "Option B",
+      "C": "Option C",
+      "D": "Option D"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Canary deployment",
+    "wrongWhy": {}
+  },
+  {
+    "id": 34,
+    "domain": "D3",
+    "type": "multi",
+    "stem": "Select TWO resources commonly used to build and store container images for SageMaker custom inference (Select TWO).",
+    "options": {
+      "A": "Amazon ECR",
+      "B": "AWS CodeBuild",
+      "C": "Amazon S3 Glacier only",
+      "D": "Amazon DynamoDB",
+      "E": "Amazon Route 53"
+    },
+    "correct": [
+      "A",
+      "B"
+    ],
+    "explanation": "ECR stores container images; CodeBuild often builds and pushes images in CI/CD pipelines.",
+    "wrongWhy": {
+      "C": "Glacier not for container registry.",
+      "D": "DynamoDB is NoSQL.",
+      "E": "DNS service."
+    }
+  },
+  {
+    "id": 35,
+    "domain": "D3",
+    "type": "single",
+    "stem": "Edge device optimized model:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "SageMaker Neo",
+      "C": "Option C",
+      "D": "Option D"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "SageMaker Neo",
+    "wrongWhy": {}
+  },
+  {
+    "id": 36,
+    "domain": "D3",
+    "type": "single",
+    "stem": "Right-size inference instances:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "Option B",
+      "C": "Inference Recommender",
+      "D": "Option D"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "Inference Recommender",
+    "wrongWhy": {}
+  },
+  {
+    "id": 37,
+    "domain": "D3",
+    "type": "single",
+    "stem": "Multi-model on one GPU endpoint:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "Option B",
+      "C": "Option C",
+      "D": "Multi-model endpoint"
+    },
+    "correct": [
+      "D"
+    ],
+    "explanation": "Multi-model endpoint",
+    "wrongWhy": {}
+  },
+  {
+    "id": 38,
+    "domain": "D3",
+    "type": "single",
+    "stem": "Trigger pipeline on git commit:",
+    "options": {
+      "A": "CodePipeline integrated with SageMaker",
+      "B": "Option B",
+      "C": "Option C",
+      "D": "Option D"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "CodePipeline integrated with SageMaker",
+    "wrongWhy": {}
+  },
+  {
+    "id": 39,
+    "domain": "D3",
+    "type": "single",
+    "stem": "Private subnet inference no public internet:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "VPC config with endpoints",
+      "C": "Option C",
+      "D": "Option D"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "VPC config with endpoints",
+    "wrongWhy": {}
+  },
+  {
+    "id": 40,
+    "domain": "D3",
+    "type": "single",
+    "stem": "Orchestrate enterprise Airflow:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "Option B",
+      "C": "Amazon MWAA",
+      "D": "Option D"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "Amazon MWAA",
+    "wrongWhy": {}
+  },
+  {
+    "id": 41,
+    "domain": "D4",
+    "type": "single",
+    "stem": "Feature distribution shift in production:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "Option B",
+      "C": "Option C",
+      "D": "Model Monitor data quality"
+    },
+    "correct": [
+      "D"
+    ],
+    "explanation": "Model Monitor data quality",
+    "wrongWhy": {}
+  },
+  {
+    "id": 42,
+    "domain": "D4",
+    "type": "single",
+    "stem": "Audit API calls for model deployment:",
+    "options": {
+      "A": "CloudTrail",
+      "B": "Option B",
+      "C": "Option C",
+      "D": "Option D"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "CloudTrail",
+    "wrongWhy": {}
+  },
+  {
+    "id": 43,
+    "domain": "D4",
+    "type": "single",
+    "stem": "Alert when ML spend exceeds budget:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "AWS Budgets",
+      "C": "Option C",
+      "D": "Option D"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "AWS Budgets",
+    "wrongWhy": {}
+  },
+  {
+    "id": 44,
+    "domain": "D4",
+    "type": "single",
+    "stem": "Least privilege SageMaker access:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "Option B",
+      "C": "IAM role scoped to resources",
+      "D": "Option D"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "IAM role scoped to resources",
+    "wrongWhy": {}
+  },
+  {
+    "id": 45,
+    "domain": "D4",
+    "type": "single",
+    "stem": "Auto retrain on drift:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "Option B",
+      "C": "Option C",
+      "D": "EventBridge + SageMaker Pipeline"
+    },
+    "correct": [
+      "D"
+    ],
+    "explanation": "EventBridge + SageMaker Pipeline",
+    "wrongWhy": {}
+  },
+  {
+    "id": 46,
+    "domain": "D4",
+    "type": "single",
+    "stem": "Production A/B traffic split:",
+    "options": {
+      "A": "Production variants weights",
+      "B": "Option B",
+      "C": "Option C",
+      "D": "Option D"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Production variants weights",
+    "wrongWhy": {}
+  },
+  {
+    "id": 47,
+    "domain": "D4",
+    "type": "multi",
+    "stem": "Select TWO approaches to reduce SageMaker training cost while maintaining recoverability (Select TWO).",
+    "options": {
+      "A": "Managed Spot Training with S3 checkpointing",
+      "B": "Always use largest On-Demand instance",
+      "C": "Disable all logging",
+      "D": "Use Spot Instances without checkpoints",
+      "E": "Right-size instance family for workload"
+    },
+    "correct": [
+      "A",
+      "E"
+    ],
+    "explanation": "Spot + checkpoints saves money with fault tolerance; rightsizing avoids overpayment.",
+    "wrongWhy": {
+      "B": "Oversized instances waste money.",
+      "C": "Logging needed for ops.",
+      "D": "Spot without checkpoints loses progress on interrupt."
+    }
+  },
+  {
+    "id": 48,
+    "domain": "D4",
+    "type": "single",
+    "stem": "Inference latency dashboards:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "CloudWatch metrics and alarms",
+      "C": "Option C",
+      "D": "Option D"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "CloudWatch metrics and alarms",
+    "wrongWhy": {}
+  },
+  {
+    "id": 49,
+    "domain": "D4",
+    "type": "single",
+    "stem": "Analyze spend by team tag:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "Option B",
+      "C": "Cost Explorer",
+      "D": "Option D"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "Cost Explorer",
+    "wrongWhy": {}
+  },
+  {
+    "id": 50,
+    "domain": "D4",
+    "type": "single",
+    "stem": "Model Monitor prerequisite:",
+    "options": {
+      "A": "Option A placeholder",
+      "B": "Option B",
+      "C": "Option C",
+      "D": "Baseline statistics"
+    },
+    "correct": [
+      "D"
+    ],
+    "explanation": "Baseline statistics",
+    "wrongWhy": {}
+  },
+  {
+    "id": 51,
+    "domain": "D1",
+    "type": "single",
+    "stem": "A startup merges clickstream (Kinesis) and customer profiles (S3 Parquet) daily. Least ops merge at scale?",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "AWS Glue ETL job",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "AWS Glue ETL job",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 52,
+    "domain": "D1",
+    "type": "single",
+    "stem": "Data scientist needs repeatable visual recipes exported to pipeline.",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "SageMaker Data Wrangler",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "SageMaker Data Wrangler",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 53,
+    "domain": "D1",
+    "type": "single",
+    "stem": "Governed data lake table access across accounts.",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "AWS Lake Formation"
+    },
+    "correct": [
+      "D"
+    ],
+    "explanation": "AWS Lake Formation",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 54,
+    "domain": "D1",
+    "type": "multi",
+    "stem": "Select TWO practices that help address selection bias before training (Select TWO).",
+    "options": {
+      "A": "Collect representative production samples",
+      "B": "Use only the easiest examples",
+      "C": "Stratified train/validation split",
+      "D": "Remove all validation data",
+      "E": "Disable random seed"
+    },
+    "correct": [
+      "A",
+      "C"
+    ],
+    "explanation": "Representative sampling and stratified splits reduce selection bias impact.",
+    "wrongWhy": {
+      "B": "Biases model further.",
+      "D": "Validation required.",
+      "E": "Seeds help reproducibility."
+    }
+  },
+  {
+    "id": 55,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Regression house prices; metric penalizes large errors.",
+    "options": {
+      "A": "RMSE",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "RMSE",
+    "wrongWhy": {
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 56,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Distributed training wall-clock reduction.",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "SageMaker distributed training jobs",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "SageMaker distributed training jobs",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 57,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Speech commands to text without custom model.",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "Amazon Transcribe",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "Amazon Transcribe",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 58,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Track 50 experiments hyperparameters metrics.",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "SageMaker Experiments"
+    },
+    "correct": [
+      "D"
+    ],
+    "explanation": "SageMaker Experiments",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 59,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Early stopping criteria based on validation AUC plateau.",
+    "options": {
+      "A": "Built into estimator/AMT early stopping",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Built into estimator/AMT early stopping",
+    "wrongWhy": {
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 60,
+    "domain": "D3",
+    "type": "single",
+    "stem": "Steady 50ms p99 latency high QPS.",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Real-time endpoint with auto scaling",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "Real-time endpoint with auto scaling",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 61,
+    "domain": "D3",
+    "type": "single",
+    "stem": "IaC provision SageMaker Studio domain.",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "CloudFormation or CDK",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "CloudFormation or CDK",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 62,
+    "domain": "D3",
+    "type": "single",
+    "stem": "Blue/green at application layer with EC2.",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "CodeDeploy"
+    },
+    "correct": [
+      "D"
+    ],
+    "explanation": "CodeDeploy",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 63,
+    "domain": "D3",
+    "type": "single",
+    "stem": "Schedule weekly retrain Sunday 2am.",
+    "options": {
+      "A": "EventBridge cron rule to Pipeline",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "EventBridge cron rule to Pipeline",
+    "wrongWhy": {
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 64,
+    "domain": "D3",
+    "type": "matching",
+    "stem": "Match each deployment need to the best SageMaker inference option.",
+    "options": {
+      "prompts": [
+        "Steady low latency at high QPS",
+        "Offline scoring of millions of rows",
+        "Intermittent traffic, minimal fleet management"
+      ],
+      "choices": [
+        "Real-time endpoint with auto scaling",
+        "Batch Transform",
+        "Serverless inference"
+      ]
+    },
+    "correct": [
+      "Real-time endpoint with auto scaling",
+      "Batch Transform",
+      "Serverless inference"
+    ],
+    "explanation": "Real-time for SLA; Batch for bulk offline; Serverless for bursty/intermittent.",
+    "wrongWhy": {}
+  },
+  {
+    "id": 65,
+    "domain": "D4",
+    "type": "single",
+    "stem": "Prediction bias drift across facets.",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Model Monitor bias drift",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "Model Monitor bias drift",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 66,
+    "domain": "D4",
+    "type": "single",
+    "stem": "Trace microservice inference latency.",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "AWS X-Ray",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "AWS X-Ray",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 67,
+    "domain": "D4",
+    "type": "single",
+    "stem": "Rightsize EC2 training instances from utilization.",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "AWS Compute Optimizer"
+    },
+    "correct": [
+      "D"
+    ],
+    "explanation": "AWS Compute Optimizer",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 68,
+    "domain": "D4",
+    "type": "single",
+    "stem": "Encrypt model artifacts at rest S3.",
+    "options": {
+      "A": "SSE-KMS",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "SSE-KMS",
+    "wrongWhy": {
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 69,
+    "domain": "D4",
+    "type": "single",
+    "stem": "Deny public S3 model bucket access.",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Bucket policy Block Public Access + IAM",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "Bucket policy Block Public Access + IAM",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 70,
+    "domain": "D1",
+    "type": "single",
+    "stem": "Athena appropriate when?",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "Ad-hoc SQL analytics on S3 without loading cluster",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "Ad-hoc SQL analytics on S3 without loading cluster",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 71,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Personalize used for?",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "Real-time recommendation campaigns"
+    },
+    "correct": [
+      "D"
+    ],
+    "explanation": "Real-time recommendation campaigns",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 72,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Textract used for?",
+    "options": {
+      "A": "Extract tables/text from PDF scans",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Extract tables/text from PDF scans",
+    "wrongWhy": {
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 73,
+    "domain": "D3",
+    "type": "single",
+    "stem": "Lambda best in ML pipeline for?",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Lightweight preprocessing trigger",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "Lightweight preprocessing trigger",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 74,
+    "domain": "D3",
+    "type": "single",
+    "stem": "Heavy GPU BERT inference 24/7.",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "Real-time GPU endpoint not Lambda",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "Real-time GPU endpoint not Lambda",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 75,
+    "domain": "D4",
+    "type": "single",
+    "stem": "CloudWatch vs CloudTrail for error logs?",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "CloudWatch Logs for application logs"
+    },
+    "correct": [
+      "D"
+    ],
+    "explanation": "CloudWatch Logs for application logs",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 76,
+    "domain": "D1",
+    "type": "single",
+    "stem": "Firehose delivers to?",
+    "options": {
+      "A": "S3, Redshift, OpenSearch destinations",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "S3, Redshift, OpenSearch destinations",
+    "wrongWhy": {
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 77,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Precision low recall high means?",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Many false positives among predicted positives",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "Many false positives among predicted positives",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 78,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Ensemble stacking improves?",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "Predictive performance combining models",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "Predictive performance combining models",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 79,
+    "domain": "D3",
+    "type": "single",
+    "stem": "Pipeline step fails metric <0.8 accuracy.",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "Conditional step stops promotion"
+    },
+    "correct": [
+      "D"
+    ],
+    "explanation": "Conditional step stops promotion",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 80,
+    "domain": "D4",
+    "type": "single",
+    "stem": "Trusted Advisor helps?",
+    "options": {
+      "A": "Cost and performance recommendations",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Cost and performance recommendations",
+    "wrongWhy": {
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 81,
+    "domain": "D1",
+    "type": "single",
+    "stem": "Case: Bank ingests daily Parquet to S3, needs GDPR PII scan before Feature Store. First step?",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Macie scan then transform",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "Macie scan then transform",
+    "wrongWhy": {}
+  },
+  {
+    "id": 82,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Case: Startup needs chatbot FM quickly.",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "Amazon Bedrock",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "Amazon Bedrock",
+    "wrongWhy": {}
+  },
+  {
+    "id": 83,
+    "domain": "D3",
+    "type": "single",
+    "stem": "Case: Mobile app 2x/day batch user churn scores.",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "Batch Transform"
+    },
+    "correct": [
+      "D"
+    ],
+    "explanation": "Batch Transform",
+    "wrongWhy": {}
+  },
+  {
+    "id": 84,
+    "domain": "D4",
+    "type": "single",
+    "stem": "Case: Model accuracy dropped after marketing campaign changed user mix.",
+    "options": {
+      "A": "Detect data drift retrain pipeline",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Detect data drift retrain pipeline",
+    "wrongWhy": {}
+  },
+  {
+    "id": 85,
+    "domain": "D1",
+    "type": "single",
+    "stem": "One-hot encoding risk with high cardinality?",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Sparse high-dimensional features",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "Sparse high-dimensional features",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 86,
+    "domain": "D2",
+    "type": "single",
+    "stem": "L2 regularization primarily prevents?",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "Large weights overfitting",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "Large weights overfitting",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 87,
+    "domain": "D3",
+    "type": "single",
+    "stem": "ECR image scan failure blocks deploy because?",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "Security compliance in CI/CD"
+    },
+    "correct": [
+      "D"
+    ],
+    "explanation": "Security compliance in CI/CD",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 88,
+    "domain": "D4",
+    "type": "single",
+    "stem": "Savings Plans benefit?",
+    "options": {
+      "A": "Flexible compute savings commitment",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Flexible compute savings commitment",
+    "wrongWhy": {
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 89,
+    "domain": "D1",
+    "type": "single",
+    "stem": "Mechanical Turk integrated via?",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Ground Truth or custom workforce",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "Ground Truth or custom workforce",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 90,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Heat map used for?",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "Visualize confusion matrix patterns",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "Visualize confusion matrix patterns",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 91,
+    "domain": "D3",
+    "type": "single",
+    "stem": "Auto scaling target invocations per instance addresses?",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "Traffic growth scaling out"
+    },
+    "correct": [
+      "D"
+    ],
+    "explanation": "Traffic growth scaling out",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 92,
+    "domain": "D4",
+    "type": "single",
+    "stem": "QuickSight in ML ops for?",
+    "options": {
+      "A": "Business dashboards on metrics",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Business dashboards on metrics",
+    "wrongWhy": {
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 93,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Fine-tune JumpStart when?",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Limited data similar task pre-trained model exists",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "Limited data similar task pre-trained model exists",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 94,
+    "domain": "D3",
+    "type": "single",
+    "stem": "Step Functions use with?",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "Orchestrate Lambda SageMaker jobs",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "Orchestrate Lambda SageMaker jobs",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 95,
+    "domain": "D4",
+    "type": "single",
+    "stem": "KMS with SageMaker?",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "Encrypt volumes and S3 artifacts"
+    },
+    "correct": [
+      "D"
+    ],
+    "explanation": "Encrypt volumes and S3 artifacts",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 96,
+    "domain": "D1",
+    "type": "single",
+    "stem": "Provisioned IOPS for?",
+    "options": {
+      "A": "High-performance EBS training I/O",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "High-performance EBS training I/O",
+    "wrongWhy": {
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 97,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Catastrophic forgetting concern in?",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Sequential fine-tuning without replay",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "Sequential fine-tuning without replay",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 98,
+    "domain": "D3",
+    "type": "single",
+    "stem": "GitFlow affects?",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "Branch strategy triggering pipelines",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "Branch strategy triggering pipelines",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 99,
+    "domain": "D4",
+    "type": "single",
+    "stem": "Service quota increase needed for?",
+    "options": {
+      "A": "Incorrect option A",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "More concurrent training jobs"
+    },
+    "correct": [
+      "D"
+    ],
+    "explanation": "More concurrent training jobs",
+    "wrongWhy": {
+      "A": "Not the best AWS choice for this scenario.",
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario."
+    }
+  },
+  {
+    "id": 100,
+    "domain": "Cross",
+    "type": "single",
+    "stem": "Minimum passing score MLA-C01?",
+    "options": {
+      "A": "720 scaled score",
+      "B": "Incorrect option B",
+      "C": "Incorrect option C",
+      "D": "Incorrect option D"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "720 scaled score",
+    "wrongWhy": {
+      "B": "Not the best AWS choice for this scenario.",
+      "C": "Not the best AWS choice for this scenario.",
+      "D": "Not the best AWS choice for this scenario."
+    }
+  }
+]

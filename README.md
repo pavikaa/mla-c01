@@ -11,7 +11,24 @@ Generated June 2026 from official AWS exam guide (April 2025 English update) and
 | `03-high-yield-notes.md` | SageMaker, MLOps, metrics, services |
 | `04-flashcards-anki.txt` | **221** cards — import to Anki |
 | `05-practice-questions.md` | **100** questions with explanations |
+| `quiz.html` | **Interactive quiz** (all 100 Q — click answers, scoring, review) |
+| `questions.json` | Machine-readable question bank (used by quiz) |
 | `06-cheat-sheet-last-24h.md` | Print before exam |
+
+## Interactive practice quiz
+
+Open **`quiz.html`** in a browser (double-click works — questions are embedded).
+
+**Features:** single & multi-select, ordering, matching · filter by domain · 65-question exam mode · optional timer · explanations · review incorrect
+
+**GitHub Pages:** enable Pages on repo → source `main` / root → quiz at  
+`https://pavikaa.github.io/mla-c01/quiz.html`
+
+**Local server (optional):**
+```bash
+cd aws-mla-c01-prep && python3 -m http.server 8080
+# http://localhost:8080/quiz.html
+```
 
 ## Anki import
 
