@@ -221,3 +221,17 @@ Technical debt ML exam?	Monitor drift and automate retrain pipelines	mla-c01::Do
 [HF] Exam penalty for guessing?	No penalty — answer every question	mla-c01::Cross_Exam
 [HF] Service short names in exam?	Available via Help button during test	mla-c01::Cross_Exam
 [HF] Ideal candidate experience?	1 year SageMaker + 1 year ML engineering related role	mla-c01::Cross_Exam
+[HF] What IAM action invokes Bedrock models?	bedrock:InvokeModel	mla-c01::Supplemental
+[HF] MSK Serverless benefit?	Kafka-compatible streaming without broker capacity planning	mla-c01::Supplemental
+[HF] Glue ETL + Crawler output catalog?	AWS Glue Data Catalog	mla-c01::Supplemental
+[HF] Training job metadata compliance opt-out?	Opt out of metadata tracking on job submission	mla-c01::Supplemental
+[HF] FSx ONTAP with SageMaker in same VPC?	Mount FSx file system to training instance	mla-c01::Supplemental
+[HF] Fix NN overfitting — wrong advice?	Do NOT remove dropout; use regularization/early stopping	mla-c01::Supplemental
+[HF] Least ops keyword extraction?	Amazon Comprehend key phrases	mla-c01::Supplemental
+[HF] Bedrock filter toxic/PII outputs?	Amazon Bedrock Guardrails	mla-c01::Supplemental
+L1 regularization effect?	Sparsity — drives some coefficients to zero	mla-c01::Supplemental
+S3 new data triggers ML CI/CD first step?	S3 event notification to CodePipeline/Lambda	mla-c01::Supplemental
+RAG semantic search over S3 docs managed?	Kendra connector or Bedrock Knowledge Base	mla-c01::Supplemental
+Seasonal spiky inference lowest idle cost?	SageMaker serverless inference	mla-c01::Supplemental
+Large queued media inference minutes?	Asynchronous endpoint	mla-c01::Supplemental
+Data lake table permissions across accounts?	AWS Lake Formation	mla-c01::Supplemental

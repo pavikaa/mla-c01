@@ -1,6 +1,6 @@
 # AWS MLA-C01 Exam Prep Pack
 
-Generated June 2026 from official AWS exam guide (April 2025 English update) and 2025–2026 community sources.
+Generated June 2026 from official AWS exam guide (April 2025 English update), community sources, and crosswalk to [Christian Greciano’s free MLA-C01 Notion notes](https://psychedelic-cuticle-e74.notion.site/AWS-Machine-Learning-Engineer-Associate-MLA-C01-19686c7395e780e1bab0eac37d0401a0) (v3).
 
 ## Files
 
@@ -9,11 +9,13 @@ Generated June 2026 from official AWS exam guide (April 2025 English update) and
 | `01-executive-summary-and-study-plan.md` | ROI path, resource table, 1/2/4-week plans, pass probability |
 | `02-domain-breakdown.md` | All 4 domains with traps and difficulty |
 | `03-high-yield-notes.md` | SageMaker, MLOps, metrics, services |
-| `04-flashcards-anki.txt` | **221** cards — import to Anki |
-| `05-practice-questions.md` | **100** questions with explanations |
-| `quiz.html` | **Interactive quiz** (all 100 Q — click answers, scoring, review) |
+| `04-flashcards-anki.txt` | **235** cards — import to Anki |
+| `05-practice-questions.md` | **120** questions with explanations |
+| `quiz.html` | **Interactive quiz** (120 Q — click answers, scoring, review) |
 | `questions.json` | Machine-readable question bank (used by quiz) |
 | `06-cheat-sheet-last-24h.md` | Print before exam |
+| `07-notion-study-crosswalk.md` | Maps free Notion notes → repo study flow (~45 days) |
+| `08-supplemental-topics.md` | Bedrock, Domain, FSx, MSK, pitfalls (Notion-aligned) |
 
 ## Interactive practice quiz
 
@@ -47,9 +49,13 @@ cd aws-mla-c01-prep && python3 -m http.server 8080
 
 ## Suggested workflow
 
-1. Read `01` (30 min) → baseline practice test
-2. Study `03` + hands-on SageMaker (weak domains only)
-3. Daily `04` flashcards (20–40 cards/day)
-4. `05` in timed blocks of 65 questions
-5. Book exam at **≥85%** on two full practice runs
-6. `06` the day before
+**With free Notion notes (recommended parallel read):**
+
+1. Open `07-notion-study-crosswalk.md` → follow Notion sections in order  
+2. Read [Greciano Notion MLA-C01](https://psychedelic-cuticle-e74.notion.site/AWS-Machine-Learning-Engineer-Associate-MLA-C01-19686c7395e780e1bab0eac37d0401a0) for depth · `08-supplemental-topics.md` for exam traps  
+3. Daily `04` flashcards (20 new/day ≈ 12 days for full deck)  
+4. `quiz.html` — domain filters while learning; **exam mode (65)** when ready  
+5. Add **Tutorials Dojo** or Skill Builder official practice exams  
+6. Book real exam at **≥85%** on two timed runs · `06` cheat sheet last 24h  
+
+**Repo-only fast path:** `01` → `03` → `quiz.html` → `06`

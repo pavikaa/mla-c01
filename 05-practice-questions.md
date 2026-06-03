@@ -1,5 +1,5 @@
-# MLA-C01 Practice Questions (100)
-**Instructions:** Timed 130 min for full set. Interactive version: open `quiz.html`.
+# MLA-C01 Practice Questions (120)
+**Instructions:** Timed 130 min for 65-question exam mode in `quiz.html`. Full bank = 120.
 
 ---
 ## Question 1 [D1] — Single
@@ -951,9 +951,9 @@ A retraining SageMaker Pipeline must run every Sunday at 2:00 AM UTC automatical
 ---
 ## Question 64 [D3] — Matching
 Match each inference requirement to the most appropriate SageMaker deployment option.
-- **Steady low latency at high QPS** → match from list below
-- **Offline scoring of millions of historical records** → match from list below
-- **Intermittent traffic with minimal instance management** → match from list below
+- **Steady low latency at high QPS**
+- **Offline scoring of millions of historical records**
+- **Intermittent traffic with minimal instance management**
 
 Choices:
 - Real-time endpoint with auto scaling
@@ -1502,5 +1502,306 @@ What is the minimum passing scaled score for the AWS Certified Machine Learning 
 - B: Below official pass line.
 - C: Higher than required.
 - D: Perfect score not required.
+
+---
+## Question 101 [D2] — Multi
+A worker pulls messages from Amazon SQS, calls Amazon Bedrock Titan Image Generator, and deletes processed messages. Select TWO required IAM permissions. (Select TWO)
+- A) sqs:ReceiveMessage and sqs:DeleteMessage on the queue
+- B) bedrock:InvokeModel on the model
+- C) sagemaker:CreateTrainingJob
+- D) ec2:TerminateInstances
+- E) cloudfront:CreateDistribution
+
+**Correct answer(s):** A, B
+**Explanation:** Queue consumption needs ReceiveMessage/DeleteMessage; generation needs bedrock:InvokeModel.
+**Why others are wrong:**
+- C: Training API not used at inference.
+- D: Unrelated.
+- E: CDN unrelated.
+
+---
+## Question 102 [D1] — Single
+RAG over text files already in S3 requires semantic search with minimal custom vector infrastructure. Which solution has the LEAST operational overhead?
+- A) Amazon Kendra S3 connector or Bedrock Knowledge Base
+- B) Textract only
+- C) Athena SQL LIKE queries
+- D) AWS Snowball
+
+**Correct answer(s):** A
+**Explanation:** Kendra and Bedrock Knowledge Bases provide managed semantic retrieval.
+**Why others are wrong:**
+- B: Textract extracts text, not semantic search.
+- C: SQL keyword match is not semantic RAG.
+- D: Migration appliance.
+
+---
+## Question 103 [D1] — Single
+An ML engineer must run ETL to discover schema and store metadata in a central catalog with minimal manual effort. What should they use?
+- A) AWS Glue job with Glue Data Catalog
+- B) Amazon Macie only
+- C) Amazon CloudFront
+- D) AWS WAF
+
+**Correct answer(s):** A
+**Explanation:** Glue discovers schema and persists metadata in the Data Catalog.
+**Why others are wrong:**
+- B: Macie finds sensitive data.
+- C: CDN.
+- D: Firewall.
+
+---
+## Question 104 [D1] — Single
+A company needs near-real-time analytics on streams, Apache Kafka compatibility, and no broker cluster capacity planning. Which service fits?
+- A) Amazon MSK Serverless
+- B) Amazon S3 Glacier
+- C) AWS Snowcone
+- D) Amazon EBS snapshots
+
+**Correct answer(s):** A
+**Explanation:** MSK Serverless offers Kafka API without provisioning brokers.
+**Why others are wrong:**
+- B: Archival.
+- C: Edge device.
+- D: Block storage backups.
+
+---
+## Question 105 [D2] — Single
+Compliance prohibits SageMaker from collecting aggregated metadata from training jobs. What should the ML engineer configure?
+- A) Opt out of metadata tracking when submitting training jobs
+- B) Use only public S3 buckets
+- C) Disable VPC
+- D) Remove IAM roles
+
+**Correct answer(s):** A
+**Explanation:** Training jobs support metadata collection opt-out for compliance scenarios.
+**Why others are wrong:**
+- B: Public buckets worsen security.
+- C: VPC unrelated to metadata collection flag.
+- D: IAM required.
+
+---
+## Question 106 [D1] — Single
+6 TB of training data lives on Amazon FSx for ONTAP in the same VPC as SageMaker. How should the data be made accessible to training jobs?
+- A) Mount the FSx for ONTAP file system to the training instance
+- B) Email CSV files to support
+- C) Use only Amazon CloudWatch
+- D) Disable encryption
+
+**Correct answer(s):** A
+**Explanation:** FSx ONTAP provides POSIX mount for large shared training datasets in VPC.
+**Why others are wrong:**
+- B: Not a data access pattern.
+- C: Monitoring service.
+- D: Encryption still required.
+
+---
+## Question 107 [D2] — Single
+A neural network overfits (great training accuracy, poor validation). A colleague suggests removing all dropout layers. What is the BEST response?
+- A) Remove dropout and add more layers
+- B) Keep or add regularization such as dropout/L2 and use early stopping
+- C) Delete the validation set
+- D) Disable early stopping and train longer
+
+**Correct answer(s):** B
+**Explanation:** Dropout reduces overfitting; removing it worsens the problem. Regularization and early stopping help.
+**Why others are wrong:**
+- A: More layers increases capacity/overfitting risk.
+- C: Validation required.
+- D: Longer training without guardrails increases overfitting.
+
+---
+## Question 108 [D1] — Single
+Extract unique keywords from thousands of support documents with the LEAST operational overhead.
+- A) Custom NLTK on self-managed EC2 only
+- B) Manual spreadsheet review
+- C) Amazon Comprehend key phrase extraction
+- D) AWS CloudTrail
+
+**Correct answer(s):** C
+**Explanation:** Comprehend provides managed key phrase and entity APIs.
+**Why others are wrong:**
+- A: High ops vs managed API.
+- B: Not scalable.
+- D: API audit logs.
+
+---
+## Question 109 [D3] — Single
+SageMaker Studio must run in a corporate VPC without internet access to data planes. What is required?
+- A) Domain in VPC with appropriate interface VPC endpoints and security groups
+- B) Store all artifacts in public S3
+- C) Use root account access keys in notebooks
+- D) Disable CloudWatch
+
+**Correct answer(s):** A
+**Explanation:** VPC-only Studio uses private subnets and VPC endpoints for AWS services.
+**Why others are wrong:**
+- B: Public storage violates policy.
+- C: Root keys forbidden.
+- D: Logging still needed.
+
+---
+## Question 110 [D2] — Single
+5 TB mixed CSV/JSON/Parquet/text requires multi-hour NLP transforms in an automated multi-step pipeline. Which approach is MOST appropriate?
+- A) Single AWS Lambda function only
+- B) Manual copy to USB drives
+- C) SageMaker Pipelines with Processing steps (and/or Glue/EMR as needed)
+- D) Amazon Route 53 health checks
+
+**Correct answer(s):** C
+**Explanation:** Long multi-step automated ML workflows use SageMaker Pipelines; Lambda alone is insufficient at this scale/complexity.
+**Why others are wrong:**
+- A: Lambda time/memory limits.
+- B: Not automated cloud pipeline.
+- D: DNS health checks.
+
+---
+## Question 111 [D2] — Single
+Polynomial regression has many irrelevant high-order terms; coefficients should shrink to zero for unused terms. Which regularization is BEST?
+- A) L1 regularization
+- B) L2 regularization only
+- C) No regularization
+- D) Increase learning rate only
+
+**Correct answer(s):** A
+**Explanation:** L1 promotes sparsity, eliminating irrelevant coefficients.
+**Why others are wrong:**
+- B: L2 shrinks but rarely zeroes coefficients.
+- C: Allows overfitting.
+- D: Does not address feature elimination.
+
+---
+## Question 112 [D2] — Single
+Logistic regression with highly correlated features: eliminate redundant predictors. Which regularization is MOST appropriate?
+- A) L1 regularization (sparsity)
+- B) Disable all regularization
+- C) Use only S3 lifecycle
+- D) Increase batch size only
+
+**Correct answer(s):** A
+**Explanation:** Exam pattern: eliminate redundant predictors → L1 sparsity (L2 stabilizes correlated weights but keeps all features).
+**Why others are wrong:**
+- B: Correlated features remain.
+- C: Unrelated.
+- D: Batch size does not remove features.
+
+---
+## Question 113 [D3] — Single
+New training data uploaded to S3 should automatically invoke retraining and deployment via CI/CD. What is the FIRST step in the workflow?
+- A) S3 event notification to invoke CodePipeline or Lambda
+- B) S3 Lifecycle expiration rule only
+- C) Delete the Model Registry
+- D) Disable CloudTrail
+
+**Correct answer(s):** A
+**Explanation:** Event-driven pipelines start with S3 event notifications to orchestration.
+**Why others are wrong:**
+- B: Lifecycle manages storage class, not ML CI/CD trigger.
+- C: Registry required for governance.
+- D: Audit needed.
+
+---
+## Question 114 [D4] — Single
+A GenAI app must block toxic outputs and filter PII in model responses on AWS. Which Bedrock feature helps?
+- A) Bedrock Guardrails
+- B) Amazon Macie only
+- C) AWS Snowball
+- D) Amazon EBS
+
+**Correct answer(s):** A
+**Explanation:** Guardrails apply safety and privacy filters to Bedrock model output.
+**Why others are wrong:**
+- B: Macie scans S3 data at rest, not live GenAI output filtering.
+- C: Transfer device.
+- D: Block storage.
+
+---
+## Question 115 [D1] — Single
+MSK Provisioned vs MSK Serverless: when is Provisioned MORE appropriate?
+- A) When you need fine-grained broker sizing and Kafka version control at scale with predictable throughput
+- B) When you want zero Kafka compatibility
+- C) When you only need S3 archival
+- D) When you need DNS routing
+
+**Correct answer(s):** A
+**Explanation:** Provisioned clusters give control over broker capacity; Serverless for variable/ops-light Kafka.
+**Why others are wrong:**
+- B: Both are Kafka-compatible.
+- C: Use Firehose/Glue for archival.
+- D: Route 53 unrelated.
+
+---
+## Question 116 [D3] — Single
+After approval in Model Registry, a model must reach production with traffic shifting. What components are involved?
+- A) Approved model package + production variant on endpoint (possibly canary weights)
+- B) Delete all CloudWatch alarms
+- C) Public S3 ACL on artifacts
+- D) Disable IAM
+
+**Correct answer(s):** A
+**Explanation:** Registry approval gates promotion; endpoints use production variants for traffic.
+**Why others are wrong:**
+- B: Monitoring required.
+- C: Insecure.
+- D: IAM required.
+
+---
+## Question 117 [D2] — Single
+A team needs embeddings from Bedrock for RAG but wants AWS to manage chunking and retrieval orchestration. They should evaluate:
+- A) Bedrock Knowledge Bases
+- B) Amazon Polly
+- C) AWS DeepRacer
+- D) Amazon MQ only
+
+**Correct answer(s):** A
+**Explanation:** Knowledge Bases provide managed RAG ingestion, embedding, and retrieval for Bedrock.
+**Why others are wrong:**
+- B: Speech synthesis.
+- C: RL toy.
+- D: Message broker not RAG.
+
+---
+## Question 118 [D4] — Single
+Centralized table permissions across accounts for analytics on a data lake are required. Which service?
+- A) AWS Lake Formation
+- B) Amazon Rekognition
+- C) Amazon Transcribe
+- D) AWS DeepRacer
+
+**Correct answer(s):** A
+**Explanation:** Lake Formation manages fine-grained permissions on data lake tables.
+**Why others are wrong:**
+- B: Vision.
+- C: Speech.
+- D: RL game.
+
+---
+## Question 119 [D3] — Single
+Holiday flight promo inference: millions of users, seasonal spikes, minimal idle cost. Best endpoint type?
+- A) Serverless inference
+- B) Always-on ml.p4d.24xlarge real-time only
+- C) Batch only for live clicks
+- D) Amazon RDS read replica
+
+**Correct answer(s):** A
+**Explanation:** Spiky seasonal traffic fits serverless pay-per-use scaling.
+**Why others are wrong:**
+- B: Expensive idle capacity.
+- C: Batch not for interactive promo clicks.
+- D: Database not inference.
+
+---
+## Question 120 [D3] — Single
+Online image/audio stories for passengers: large media, processing may take minutes, near-real-time acceptable with queue. Best choice?
+- A) Asynchronous inference endpoint
+- B) Real-time CPU endpoint with 10ms SLA
+- C) SageMaker Ground Truth
+- D) AWS Budgets
+
+**Correct answer(s):** A
+**Explanation:** Async handles large payloads and queued long-running inference.
+**Why others are wrong:**
+- B: Strict ms SLA wrong for minutes-long media jobs.
+- C: Labeling service.
+- D: Cost alerts.
 
 ---

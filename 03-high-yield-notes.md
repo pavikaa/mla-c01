@@ -173,6 +173,18 @@ Data (S3/Glue) → Features (Feature Store) → Train (SageMaker) → Register (
 
 ---
 
+## Amazon Bedrock (GenAI — see also `08-supplemental-topics.md`)
+
+| Topic | Exam takeaway |
+|-------|----------------|
+| **InvokeModel** | IAM for running FM inference |
+| **Knowledge Bases** | Managed RAG over your documents |
+| **Agents** | Tool-using GenAI workflows |
+| **Guardrails** | Safety / PII filters on outputs |
+| **vs SageMaker custom** | Bedrock when FM + API suffices; SageMaker when full training control needed |
+
+---
+
 ## Services likely on exam (in-scope appendix summary)
 
 **Must know:** SageMaker, S3, IAM, VPC, CloudWatch, CloudTrail, Glue, CodePipeline/CodeBuild, EventBridge, ECR, Step Functions, KMS, Lambda (orchestration), EC2, EFS, Feature Store ecosystem  

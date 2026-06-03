@@ -2113,5 +2113,427 @@
       "C": "Higher than required.",
       "D": "Perfect score not required."
     }
+  },
+  {
+    "id": 101,
+    "domain": "D2",
+    "type": "multi",
+    "stem": "A worker pulls messages from Amazon SQS, calls Amazon Bedrock Titan Image Generator, and deletes processed messages. Select TWO required IAM permissions. (Select TWO)",
+    "options": {
+      "A": "sqs:ReceiveMessage and sqs:DeleteMessage on the queue",
+      "B": "bedrock:InvokeModel on the model",
+      "C": "sagemaker:CreateTrainingJob",
+      "D": "ec2:TerminateInstances",
+      "E": "cloudfront:CreateDistribution"
+    },
+    "correct": [
+      "A",
+      "B"
+    ],
+    "explanation": "Queue consumption needs ReceiveMessage/DeleteMessage; generation needs bedrock:InvokeModel.",
+    "wrongWhy": {
+      "C": "Training API not used at inference.",
+      "D": "Unrelated.",
+      "E": "CDN unrelated."
+    }
+  },
+  {
+    "id": 102,
+    "domain": "D1",
+    "type": "single",
+    "stem": "RAG over text files already in S3 requires semantic search with minimal custom vector infrastructure. Which solution has the LEAST operational overhead?",
+    "options": {
+      "A": "Amazon Kendra S3 connector or Bedrock Knowledge Base",
+      "B": "Textract only",
+      "C": "Athena SQL LIKE queries",
+      "D": "AWS Snowball"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Kendra and Bedrock Knowledge Bases provide managed semantic retrieval.",
+    "wrongWhy": {
+      "B": "Textract extracts text, not semantic search.",
+      "C": "SQL keyword match is not semantic RAG.",
+      "D": "Migration appliance."
+    }
+  },
+  {
+    "id": 103,
+    "domain": "D1",
+    "type": "single",
+    "stem": "An ML engineer must run ETL to discover schema and store metadata in a central catalog with minimal manual effort. What should they use?",
+    "options": {
+      "A": "AWS Glue job with Glue Data Catalog",
+      "B": "Amazon Macie only",
+      "C": "Amazon CloudFront",
+      "D": "AWS WAF"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Glue discovers schema and persists metadata in the Data Catalog.",
+    "wrongWhy": {
+      "B": "Macie finds sensitive data.",
+      "C": "CDN.",
+      "D": "Firewall."
+    }
+  },
+  {
+    "id": 104,
+    "domain": "D1",
+    "type": "single",
+    "stem": "A company needs near-real-time analytics on streams, Apache Kafka compatibility, and no broker cluster capacity planning. Which service fits?",
+    "options": {
+      "A": "Amazon MSK Serverless",
+      "B": "Amazon S3 Glacier",
+      "C": "AWS Snowcone",
+      "D": "Amazon EBS snapshots"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "MSK Serverless offers Kafka API without provisioning brokers.",
+    "wrongWhy": {
+      "B": "Archival.",
+      "C": "Edge device.",
+      "D": "Block storage backups."
+    }
+  },
+  {
+    "id": 105,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Compliance prohibits SageMaker from collecting aggregated metadata from training jobs. What should the ML engineer configure?",
+    "options": {
+      "A": "Opt out of metadata tracking when submitting training jobs",
+      "B": "Use only public S3 buckets",
+      "C": "Disable VPC",
+      "D": "Remove IAM roles"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Training jobs support metadata collection opt-out for compliance scenarios.",
+    "wrongWhy": {
+      "B": "Public buckets worsen security.",
+      "C": "VPC unrelated to metadata collection flag.",
+      "D": "IAM required."
+    }
+  },
+  {
+    "id": 106,
+    "domain": "D1",
+    "type": "single",
+    "stem": "6 TB of training data lives on Amazon FSx for ONTAP in the same VPC as SageMaker. How should the data be made accessible to training jobs?",
+    "options": {
+      "A": "Mount the FSx for ONTAP file system to the training instance",
+      "B": "Email CSV files to support",
+      "C": "Use only Amazon CloudWatch",
+      "D": "Disable encryption"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "FSx ONTAP provides POSIX mount for large shared training datasets in VPC.",
+    "wrongWhy": {
+      "B": "Not a data access pattern.",
+      "C": "Monitoring service.",
+      "D": "Encryption still required."
+    }
+  },
+  {
+    "id": 107,
+    "domain": "D2",
+    "type": "single",
+    "stem": "A neural network overfits (great training accuracy, poor validation). A colleague suggests removing all dropout layers. What is the BEST response?",
+    "options": {
+      "A": "Remove dropout and add more layers",
+      "B": "Keep or add regularization such as dropout/L2 and use early stopping",
+      "C": "Delete the validation set",
+      "D": "Disable early stopping and train longer"
+    },
+    "correct": [
+      "B"
+    ],
+    "explanation": "Dropout reduces overfitting; removing it worsens the problem. Regularization and early stopping help.",
+    "wrongWhy": {
+      "A": "More layers increases capacity/overfitting risk.",
+      "C": "Validation required.",
+      "D": "Longer training without guardrails increases overfitting."
+    }
+  },
+  {
+    "id": 108,
+    "domain": "D1",
+    "type": "single",
+    "stem": "Extract unique keywords from thousands of support documents with the LEAST operational overhead.",
+    "options": {
+      "A": "Custom NLTK on self-managed EC2 only",
+      "B": "Manual spreadsheet review",
+      "C": "Amazon Comprehend key phrase extraction",
+      "D": "AWS CloudTrail"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "Comprehend provides managed key phrase and entity APIs.",
+    "wrongWhy": {
+      "A": "High ops vs managed API.",
+      "B": "Not scalable.",
+      "D": "API audit logs."
+    }
+  },
+  {
+    "id": 109,
+    "domain": "D3",
+    "type": "single",
+    "stem": "SageMaker Studio must run in a corporate VPC without internet access to data planes. What is required?",
+    "options": {
+      "A": "Domain in VPC with appropriate interface VPC endpoints and security groups",
+      "B": "Store all artifacts in public S3",
+      "C": "Use root account access keys in notebooks",
+      "D": "Disable CloudWatch"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "VPC-only Studio uses private subnets and VPC endpoints for AWS services.",
+    "wrongWhy": {
+      "B": "Public storage violates policy.",
+      "C": "Root keys forbidden.",
+      "D": "Logging still needed."
+    }
+  },
+  {
+    "id": 110,
+    "domain": "D2",
+    "type": "single",
+    "stem": "5 TB mixed CSV/JSON/Parquet/text requires multi-hour NLP transforms in an automated multi-step pipeline. Which approach is MOST appropriate?",
+    "options": {
+      "A": "Single AWS Lambda function only",
+      "B": "Manual copy to USB drives",
+      "C": "SageMaker Pipelines with Processing steps (and/or Glue/EMR as needed)",
+      "D": "Amazon Route 53 health checks"
+    },
+    "correct": [
+      "C"
+    ],
+    "explanation": "Long multi-step automated ML workflows use SageMaker Pipelines; Lambda alone is insufficient at this scale/complexity.",
+    "wrongWhy": {
+      "A": "Lambda time/memory limits.",
+      "B": "Not automated cloud pipeline.",
+      "D": "DNS health checks."
+    }
+  },
+  {
+    "id": 111,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Polynomial regression has many irrelevant high-order terms; coefficients should shrink to zero for unused terms. Which regularization is BEST?",
+    "options": {
+      "A": "L1 regularization",
+      "B": "L2 regularization only",
+      "C": "No regularization",
+      "D": "Increase learning rate only"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "L1 promotes sparsity, eliminating irrelevant coefficients.",
+    "wrongWhy": {
+      "B": "L2 shrinks but rarely zeroes coefficients.",
+      "C": "Allows overfitting.",
+      "D": "Does not address feature elimination."
+    }
+  },
+  {
+    "id": 112,
+    "domain": "D2",
+    "type": "single",
+    "stem": "Logistic regression with highly correlated features: eliminate redundant predictors. Which regularization is MOST appropriate?",
+    "options": {
+      "A": "L1 regularization (sparsity)",
+      "B": "Disable all regularization",
+      "C": "Use only S3 lifecycle",
+      "D": "Increase batch size only"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Exam pattern: eliminate redundant predictors → L1 sparsity (L2 stabilizes correlated weights but keeps all features).",
+    "wrongWhy": {
+      "B": "Correlated features remain.",
+      "C": "Unrelated.",
+      "D": "Batch size does not remove features."
+    }
+  },
+  {
+    "id": 113,
+    "domain": "D3",
+    "type": "single",
+    "stem": "New training data uploaded to S3 should automatically invoke retraining and deployment via CI/CD. What is the FIRST step in the workflow?",
+    "options": {
+      "A": "S3 event notification to invoke CodePipeline or Lambda",
+      "B": "S3 Lifecycle expiration rule only",
+      "C": "Delete the Model Registry",
+      "D": "Disable CloudTrail"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Event-driven pipelines start with S3 event notifications to orchestration.",
+    "wrongWhy": {
+      "B": "Lifecycle manages storage class, not ML CI/CD trigger.",
+      "C": "Registry required for governance.",
+      "D": "Audit needed."
+    }
+  },
+  {
+    "id": 114,
+    "domain": "D4",
+    "type": "single",
+    "stem": "A GenAI app must block toxic outputs and filter PII in model responses on AWS. Which Bedrock feature helps?",
+    "options": {
+      "A": "Bedrock Guardrails",
+      "B": "Amazon Macie only",
+      "C": "AWS Snowball",
+      "D": "Amazon EBS"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Guardrails apply safety and privacy filters to Bedrock model output.",
+    "wrongWhy": {
+      "B": "Macie scans S3 data at rest, not live GenAI output filtering.",
+      "C": "Transfer device.",
+      "D": "Block storage."
+    }
+  },
+  {
+    "id": 115,
+    "domain": "D1",
+    "type": "single",
+    "stem": "MSK Provisioned vs MSK Serverless: when is Provisioned MORE appropriate?",
+    "options": {
+      "A": "When you need fine-grained broker sizing and Kafka version control at scale with predictable throughput",
+      "B": "When you want zero Kafka compatibility",
+      "C": "When you only need S3 archival",
+      "D": "When you need DNS routing"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Provisioned clusters give control over broker capacity; Serverless for variable/ops-light Kafka.",
+    "wrongWhy": {
+      "B": "Both are Kafka-compatible.",
+      "C": "Use Firehose/Glue for archival.",
+      "D": "Route 53 unrelated."
+    }
+  },
+  {
+    "id": 116,
+    "domain": "D3",
+    "type": "single",
+    "stem": "After approval in Model Registry, a model must reach production with traffic shifting. What components are involved?",
+    "options": {
+      "A": "Approved model package + production variant on endpoint (possibly canary weights)",
+      "B": "Delete all CloudWatch alarms",
+      "C": "Public S3 ACL on artifacts",
+      "D": "Disable IAM"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Registry approval gates promotion; endpoints use production variants for traffic.",
+    "wrongWhy": {
+      "B": "Monitoring required.",
+      "C": "Insecure.",
+      "D": "IAM required."
+    }
+  },
+  {
+    "id": 117,
+    "domain": "D2",
+    "type": "single",
+    "stem": "A team needs embeddings from Bedrock for RAG but wants AWS to manage chunking and retrieval orchestration. They should evaluate:",
+    "options": {
+      "A": "Bedrock Knowledge Bases",
+      "B": "Amazon Polly",
+      "C": "AWS DeepRacer",
+      "D": "Amazon MQ only"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Knowledge Bases provide managed RAG ingestion, embedding, and retrieval for Bedrock.",
+    "wrongWhy": {
+      "B": "Speech synthesis.",
+      "C": "RL toy.",
+      "D": "Message broker not RAG."
+    }
+  },
+  {
+    "id": 118,
+    "domain": "D4",
+    "type": "single",
+    "stem": "Centralized table permissions across accounts for analytics on a data lake are required. Which service?",
+    "options": {
+      "A": "AWS Lake Formation",
+      "B": "Amazon Rekognition",
+      "C": "Amazon Transcribe",
+      "D": "AWS DeepRacer"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Lake Formation manages fine-grained permissions on data lake tables.",
+    "wrongWhy": {
+      "B": "Vision.",
+      "C": "Speech.",
+      "D": "RL game."
+    }
+  },
+  {
+    "id": 119,
+    "domain": "D3",
+    "type": "single",
+    "stem": "Holiday flight promo inference: millions of users, seasonal spikes, minimal idle cost. Best endpoint type?",
+    "options": {
+      "A": "Serverless inference",
+      "B": "Always-on ml.p4d.24xlarge real-time only",
+      "C": "Batch only for live clicks",
+      "D": "Amazon RDS read replica"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Spiky seasonal traffic fits serverless pay-per-use scaling.",
+    "wrongWhy": {
+      "B": "Expensive idle capacity.",
+      "C": "Batch not for interactive promo clicks.",
+      "D": "Database not inference."
+    }
+  },
+  {
+    "id": 120,
+    "domain": "D3",
+    "type": "single",
+    "stem": "Online image/audio stories for passengers: large media, processing may take minutes, near-real-time acceptable with queue. Best choice?",
+    "options": {
+      "A": "Asynchronous inference endpoint",
+      "B": "Real-time CPU endpoint with 10ms SLA",
+      "C": "SageMaker Ground Truth",
+      "D": "AWS Budgets"
+    },
+    "correct": [
+      "A"
+    ],
+    "explanation": "Async handles large payloads and queued long-running inference.",
+    "wrongWhy": {
+      "B": "Strict ms SLA wrong for minutes-long media jobs.",
+      "C": "Labeling service.",
+      "D": "Cost alerts."
+    }
   }
 ]
