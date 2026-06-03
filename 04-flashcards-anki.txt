@@ -1,0 +1,223 @@
+#deck:MLA-C01
+#columns:Front	Back	Tags
+[HF] What is the primary benefit of Parquet over CSV for ML on S3?	Columnar storage, compression, faster selective reads; better for large training datasets	mla-c01::Domain1_Data
+[HF] When should you use Amazon SageMaker Feature Store?	When you need consistent features between training and real-time inference with online and offline stores	mla-c01::Domain1_Data
+[HF] What is the difference between Feature Store online and offline stores?	Offline: batch training at scale; Online: low-latency lookup for inference	mla-c01::Domain1_Data
+[HF] Which service provides visual, no-code data preparation?	AWS Glue DataBrew	mla-c01::Domain1_Data
+[HF] Which service is best for serverless SQL queries on S3 data lakes?	Amazon Athena	mla-c01::Domain1_Data
+[HF] What does AWS Glue Data Quality help with?	Validating dataset quality rules and detecting issues in pipelines	mla-c01::Domain1_Data
+[HF] How does Amazon Kinesis Data Firehose differ from Kinesis Data Streams?	Firehose: managed delivery to S3/Redshift/Splunk; Streams: custom real-time consumers	mla-c01::Domain1_Data
+[HF] What format does SageMaker prefer for many built-in algorithms on S3?	RecordIO, CSV, or Parquet depending on algorithm; tabular often Parquet	mla-c01::Domain1_Data
+[HF] What is class imbalance (CI) in pre-training bias?	Unequal representation of classes in training labels	mla-c01::Domain1_Data
+[HF] What is Difference in Proportions of Labels (DPL)?	Pre-training bias metric comparing label proportions across facets	mla-c01::Domain1_Data
+[HF] Which tool detects pre-training bias in SageMaker?	SageMaker Clarify	mla-c01::Domain1_Data
+[HF] Which service labels data at scale with human workforce management?	Amazon SageMaker Ground Truth	mla-c01::Domain1_Data
+[HF] When use Mechanical Turk vs Ground Truth?	Ground Truth orchestrates labeling jobs; MTurk can be integrated for workers	mla-c01::Domain1_Data
+[HF] What is Amazon Augmented AI (A2I) used for?	Human review loops for low-confidence ML predictions	mla-c01::Domain1_Data
+[HF] How treat missing values in exam scenarios for tabular data?	Imputation, removal, or model-specific handling via DataBrew/Wrangler/Glue	mla-c01::Domain1_Data
+[HF] What is one-hot encoding used for?	Low-cardinality categorical variables converted to binary columns	mla-c01::Domain1_Data
+[HF] When use label encoding vs one-hot?	Tree-based models may tolerate label encoding; linear models often need one-hot	mla-c01::Domain1_Data
+[HF] What storage supports POSIX shared file system for training?	Amazon EFS or Amazon FSx	mla-c01::Domain1_Data
+[HF] S3 Transfer Acceleration use case?	Faster uploads from distant geographic clients to S3 bucket	mla-c01::Domain1_Data
+[HF] Lake Formation primary value?	Centralized permissions and governance for data lake	mla-c01::Domain1_Data
+Amazon Macie exam use case?	Discover and protect sensitive data like PII in S3	mla-c01::Domain1_Data
+How encrypt ML data at rest on S3?	SSE-S3, SSE-KMS, or DSSE with KMS keys	mla-c01::Domain1_Data
+Stratified split purpose?	Preserve class distribution across train/validation/test	mla-c01::Domain1_Data
+Synthetic data generation use case?	Address class imbalance or privacy-preserving augmentation	mla-c01::Domain1_Data
+Glue job bookmark benefit?	Incremental processing without reprocessing all data	mla-c01::Domain1_Data
+EMR best for?	Large-scale distributed Spark data processing	mla-c01::Domain1_Data
+Data Wrangler export options?	Python script, Jupyter notebook, SageMaker Pipeline step	mla-c01::Domain1_Data
+Amazon OpenSearch in ML prep context?	Search and analytics on logs or features; sometimes ingestion analysis	mla-c01::Domain1_Data
+Redshift in ML pipeline?	Warehouse source for feature extraction and batch training data	mla-c01::Domain1_Data
+Kinesis Data Streams use case?	Real-time ingestion with custom consumers for feature pipelines	mla-c01::Domain1_Data
+What is selection bias?	Training data not representative of production population	mla-c01::Domain1_Data
+What is measurement bias?	Systematic errors in how features or labels are recorded	mla-c01::Domain1_Data
+PII compliance exam answer pattern?	Macie detection, encryption, access control, minimal retention	mla-c01::Domain1_Data
+PHI scenario typical controls?	Encryption, IAM least privilege, audit CloudTrail, compliant storage	mla-c01::Domain1_Data
+Why shuffle training data?	Reduce order-dependent learning and improve generalization	mla-c01::Domain1_Data
+When use AWS Glue vs Lambda for transform?	Glue for large ETL; Lambda for small event-driven transforms	mla-c01::Domain1_Data
+Amazon Managed Service for Apache Flink use?	Stateful stream processing for real-time features	mla-c01::Domain1_Data
+Amazon Data Firehose delivery?	Near real-time delivery to S3, Redshift, OpenSearch, etc.	mla-c01::Domain1_Data
+What is RecordIO format?	SageMaker-friendly binary format packing multiple records	mla-c01::Domain1_Data
+Avro vs Parquet exam tip?	Both schema-based; Parquet columnar dominates analytics ML pipelines	mla-c01::Domain1_Data
+DynamoDB as ML data source?	Low-latency feature lookup or metadata; not primary batch store	mla-c01::Domain1_Data
+RDS data for ML?	Structured source extracted to S3 for SageMaker training	mla-c01::Domain1_Data
+Amazon QuickSight in Domain 4 overlap?	Dashboards for ML metrics visualization	mla-c01::Domain1_Data
+Data annotation for images?	Ground Truth with bounding boxes or semantic segmentation	mla-c01::Domain1_Data
+Tokenization applies to?	NLP text features before deep learning or bag-of-words models	mla-c01::Domain1_Data
+Log transformation use?	Stabilize variance for skewed numeric features	mla-c01::Domain1_Data
+Binning use?	Convert continuous variables to categorical buckets	mla-c01::Domain1_Data
+Normalization vs standardization?	Scale to [0,1] vs zero mean unit variance; scenario specifies	mla-c01::Domain1_Data
+Combining multiple data sources in AWS?	Glue ETL, Spark joins, or Wrangler merge	mla-c01::Domain1_Data
+Provisioned IOPS relevant service?	Amazon EBS for high-performance training storage	mla-c01::Domain1_Data
+FSx for NetApp ONTAP use?	High-performance shared file storage compatible with enterprise NFS	mla-c01::Domain1_Data
+What validates schema during ingestion?	Glue crawlers, Data Quality rules, or custom scripts	mla-c01::Domain1_Data
+Handling outliers exam approach?	Remove, cap, or transform based on business impact	mla-c01::Domain1_Data
+Deduplication tools?	Glue, Spark, DataBrew	mla-c01::Domain1_Data
+Feature splitting example?	Split datetime into hour/day/month features	mla-c01::Domain1_Data
+[HF] SageMaker Automatic Model Tuning (AMT) uses which search strategy prominently?	Bayesian optimization with early stopping of poor runs	mla-c01::Domain2_Model
+[HF] SageMaker Debugger detects?	Training issues like vanishing gradients, overfitting, not converging	mla-c01::Domain2_Model
+[HF] Model Registry primary purpose?	Versioned model artifacts with approval workflow for deployment	mla-c01::Domain2_Model
+[HF] When choose XGBoost built-in?	Tabular classification/regression with strong performance on structured data	mla-c01::Domain2_Model
+[HF] When choose Linear Learner?	Linear/logistic regression and multiclass linear models at scale	mla-c01::Domain2_Model
+[HF] SageMaker script mode allows?	Bring custom training code with TensorFlow, PyTorch, etc.	mla-c01::Domain2_Model
+[HF] Distributed training benefit?	Reduce wall-clock time for large datasets/models	mla-c01::Domain2_Model
+[HF] Early stopping in training?	Stop when validation metric stops improving to save cost and prevent overfitting	mla-c01::Domain2_Model
+[HF] L1 regularization effect?	Sparsity — pushes some weights to zero	mla-c01::Domain2_Model
+[HF] L2 regularization effect?	Weight decay — penalizes large weights	mla-c01::Domain2_Model
+[HF] Dropout used in?	Neural networks to reduce overfitting	mla-c01::Domain2_Model
+[HF] Shadow variant purpose?	Compare new model to production without affecting live traffic	mla-c01::Domain2_Model
+[HF] Precision formula concept?	TP / (TP + FP) — positive predictive value	mla-c01::Domain2_Model
+[HF] Recall formula concept?	TP / (TP + FN) — sensitivity	mla-c01::Domain2_Model
+[HF] F1 score when?	Harmonic mean of precision and recall; imbalanced classes	mla-c01::Domain2_Model
+[HF] RMSE used for?	Regression evaluation — penalizes large errors	mla-c01::Domain2_Model
+[HF] ROC-AUC measures?	Discrimination ability across thresholds for classification	mla-c01::Domain2_Model
+[HF] Confusion matrix provides?	TP, FP, FN, TN for classification threshold analysis	mla-c01::Domain2_Model
+[HF] When is accuracy misleading?	Imbalanced classification datasets	mla-c01::Domain2_Model
+[HF] Overfitting sign?	High training metric, poor validation metric	mla-c01::Domain2_Model
+[HF] Underfitting sign?	Poor performance on both train and validation	mla-c01::Domain2_Model
+[HF] SageMaker Experiments track?	Trials, parameters, metrics, artifacts across runs	mla-c01::Domain2_Model
+JumpStart provides?	Pre-trained models, notebooks, and solution templates	mla-c01::Domain2_Model
+Amazon Bedrock exam use?	Foundation models via API with minimal infrastructure management	mla-c01::Domain2_Model
+Amazon Rekognition use?	Pre-built image/video analysis without training custom CV models	mla-c01::Domain2_Model
+Amazon Comprehend use?	NLP — entities, sentiment, key phrases, language	mla-c01::Domain2_Model
+Amazon Transcribe use?	Speech to text	mla-c01::Domain2_Model
+Amazon Translate use?	Language translation	mla-c01::Domain2_Model
+Amazon Textract use?	Extract text and forms from documents	mla-c01::Domain2_Model
+Amazon Personalize use?	Real-time recommendations and personalization	mla-c01::Domain2_Model
+Amazon Fraud Detector use?	Fraud prediction using ML without building from scratch	mla-c01::Domain2_Model
+Ensembling methods include?	Bagging, boosting, stacking — improve predictive performance	mla-c01::Domain2_Model
+Catastrophic forgetting context?	Sequential training erases prior knowledge — fine-tuning awareness	mla-c01::Domain2_Model
+Fine-tuning vs training from scratch?	Fine-tune when pre-trained model exists and data limited	mla-c01::Domain2_Model
+Spot Instances for training caution?	Checkpoint to S3; jobs can interrupt	mla-c01::Domain2_Model
+Hyperparameters examples for trees?	max_depth, num_rounds, eta	mla-c01::Domain2_Model
+Batch size effect?	Larger batches: more stable gradients, more memory	mla-c01::Domain2_Model
+Epoch definition?	One full pass through training dataset	mla-c01::Domain2_Model
+SageMaker Autopilot difference from AMT?	Autopilot automates end-to-end model build; AMT tunes your estimator	mla-c01::Domain2_Model
+Model approval in Registry before prod?	Governance — only approved versions deploy to production	mla-c01::Domain2_Model
+SHAP from Clarify?	Feature attribution for model explainability	mla-c01::Domain2_Model
+PDP from Clarify?	Partial dependence plots show feature impact on predictions	mla-c01::Domain2_Model
+Post-training bias vs pre-training?	Post: model predictions; Pre: dataset labels/features	mla-c01::Domain2_Model
+Integrating custom model to SageMaker?	Training script + inference container on ECR	mla-c01::Domain2_Model
+GPU instance for training?	Deep learning and large-scale neural nets	mla-c01::Domain2_Model
+CPU sufficient when?	Traditional ML, smaller data, linear models	mla-c01::Domain2_Model
+Convergence issue fix?	Adjust learning rate, regularization, architecture, or data quality	mla-c01::Domain2_Model
+Cross-validation purpose?	Robust estimate of model generalization	mla-c01::Domain2_Model
+Heat map in evaluation?	Visualize confusion or correlation patterns	mla-c01::Domain2_Model
+Amazon CodeGuru in scope?	ML-related code quality and profiling recommendations	mla-c01::Domain2_Model
+Amazon DevOps Guru?	ML ops anomaly detection on operational metrics — awareness	mla-c01::Domain2_Model
+Lookout for Metrics?	Anomaly detection on business/time-series metrics without custom ML	mla-c01::Domain2_Model
+Choosing AI service vs custom?	Use AI service when problem matches managed API and speed to market critical	mla-c01::Domain2_Model
+Responsible AI exam theme?	Bias detection, explainability, fairness, transparency	mla-c01::Domain2_Model
+Model size reduction techniques?	Pruning, quantization awareness, feature selection — exam may mention pruning	mla-c01::Domain2_Model
+Combining models?	Ensembles — not same as multi-model endpoint	mla-c01::Domain2_Model
+[HF] Real-time endpoint best for?	Low-latency online predictions with provisioned instances	mla-c01::Domain3_Deploy
+[HF] Serverless inference best for?	Intermittent traffic without managing instance fleets	mla-c01::Domain3_Deploy
+[HF] Async inference best for?	Large payloads up to GB scale with queuing and S3 output	mla-c01::Domain3_Deploy
+[HF] Batch Transform best for?	Offline batch scoring of large datasets	mla-c01::Domain3_Deploy
+[HF] Multi-model endpoint benefit?	Host multiple models on shared infrastructure reducing cost	mla-c01::Domain3_Deploy
+[HF] Multi-container endpoint?	Deploy different containers on same endpoint infrastructure	mla-c01::Domain3_Deploy
+[HF] SageMaker Neo purpose?	Compile and optimize models for edge deployment	mla-c01::Domain3_Deploy
+[HF] Inference Recommender does?	Load testing and recommends instance types for endpoints	mla-c01::Domain3_Deploy
+[HF] BYOC meaning?	Bring Your Own Container for custom inference/training	mla-c01::Domain3_Deploy
+[HF] ECR role in SageMaker?	Store custom Docker images for training and inference	mla-c01::Domain3_Deploy
+[HF] Blue/green deployment?	Two environments; switch traffic for low-risk releases	mla-c01::Domain3_Deploy
+[HF] Canary deployment?	Gradual traffic shift to new version	mla-c01::Domain3_Deploy
+[HF] Linear deployment strategy?	Incremental step-wise traffic shift	mla-c01::Domain3_Deploy
+[HF] CodePipeline in ML?	Orchestrate CI/CD integrating build test and trigger SageMaker	mla-c01::Domain3_Deploy
+[HF] CodeBuild in ML?	Build and test code artifacts including container builds	mla-c01::Domain3_Deploy
+[HF] CodeDeploy in ML context?	Application deployment patterns; may integrate with pipeline	mla-c01::Domain3_Deploy
+[HF] GitFlow vs GitHub Flow exam?	Branching strategies for triggering CI/CD pipelines	mla-c01::Domain3_Deploy
+[HF] SageMaker Pipelines advantage?	Native ML workflow DAG with step dependencies and caching	mla-c01::Domain3_Deploy
+EventBridge trigger retrain?	React to schedule or CloudWatch/Monitor events to start pipeline	mla-c01::Domain3_Deploy
+Step Functions with ML?	Orchestrate multi-service workflows including Lambda and SageMaker jobs	mla-c01::Domain3_Deploy
+MWAA is?	Managed Apache Airflow for workflow orchestration	mla-c01::Domain3_Deploy
+Auto scaling metric for endpoints?	Invocations per instance, model latency, or CPU utilization	mla-c01::Domain3_Deploy
+On-demand vs provisioned endpoint capacity?	On-demand scales; provisioned guarantees throughput for steady load	mla-c01::Domain3_Deploy
+Lambda behind endpoint pattern?	Lightweight preprocessing not heavy GPU inference	mla-c01::Domain3_Deploy
+ECS/EKS for ML?	Container orchestration when Kubernetes/custom infra required	mla-c01::Domain3_Deploy
+VPC config for endpoints?	Private isolation with security groups and subnets	mla-c01::Domain3_Deploy
+Rollback strategy?	Revert to previous model version/variant in Registry/endpoint	mla-c01::Domain3_Deploy
+Integration test in ML CI/CD?	Validate pipeline end-to-end with sample data	mla-c01::Domain3_Deploy
+Unit test in ML CI/CD?	Test code functions and data transforms separately	mla-c01::Domain3_Deploy
+Retraining automation?	Pipeline triggered by drift monitor or schedule	mla-c01::Domain3_Deploy
+CloudFormation for ML?	IaC for provisioning SageMaker and supporting resources	mla-c01::Domain3_Deploy
+AWS CDK for ML?	Programmatic IaC generating CloudFormation	mla-c01::Domain3_Deploy
+Spot for inference exam?	Usually wrong for latency-critical production; OK for async/batch with fault tolerance	mla-c01::Domain3_Deploy
+GPU inference instances?	Deep learning models with high compute inference	mla-c01::Domain3_Deploy
+Inferentia chips benefit?	Cost-optimized inference acceleration	mla-c01::Domain3_Deploy
+Trainium chips benefit?	Cost-optimized training acceleration	mla-c01::Domain3_Deploy
+Container image for inference must include?	Model artifacts and inference handler listening on port 8080	mla-c01::Domain3_Deploy
+Production variant traffic weights?	Split percentage for A/B testing on endpoint	mla-c01::Domain3_Deploy
+Batch Transform input output?	S3 in, S3 out — no persistent endpoint	mla-c01::Domain3_Deploy
+Serverless inference limitation awareness?	Concurrency and memory limits vs real-time fleet control	mla-c01::Domain3_Deploy
+Elastic Endpoint?	Legacy term awareness — real-time with auto scaling	mla-c01::Domain3_Deploy
+Model packaging for deployment?	Model.tar.gz in S3 with inference code	mla-c01::Domain3_Deploy
+Pipeline step caching?	Skip re-execution if inputs unchanged — cost savings	mla-c01::Domain3_Deploy
+Pipeline conditional step?	Branch based on evaluation metric threshold	mla-c01::Domain3_Deploy
+Airflow vs Pipelines exam default?	Pipelines for SageMaker-native; MWAA if enterprise Airflow standard	mla-c01::Domain3_Deploy
+CodeArtifact use?	Store pip/npm packages for reproducible builds	mla-c01::Domain3_Deploy
+Git repository with pipeline?	Version control for code triggering pipeline on commit	mla-c01::Domain3_Deploy
+Hybrid deployment?	Some components on-prem via Outposts awareness — edge cases	mla-c01::Domain3_Deploy
+Model signing and security?	Integrity of artifacts; IAM controls access	mla-c01::Domain3_Deploy
+Edge deployment service combo?	Neo + IoT Greengrass awareness at high level	mla-c01::Domain3_Deploy
+[HF] Model Monitor requires?	Baseline statistics from training data or prior production window	mla-c01::Domain4_Ops
+[HF] Data quality monitor detects?	Feature distribution drift from baseline	mla-c01::Domain4_Ops
+[HF] Model quality monitor detects?	Prediction distribution or performance metric drift	mla-c01::Domain4_Ops
+[HF] Bias drift monitor detects?	Changes in fairness metrics over time	mla-c01::Domain4_Ops
+[HF] Concept drift definition?	Relationship between features and target changes over time	mla-c01::Domain4_Ops
+[HF] Data drift definition?	Input feature distribution changes	mla-c01::Domain4_Ops
+[HF] CloudWatch alarm on endpoint?	High latency, 4xx/5xx errors, invocations	mla-c01::Domain4_Ops
+[HF] CloudTrail for ML?	Audit who invoked CreateEndpoint, training jobs, etc.	mla-c01::Domain4_Ops
+[HF] X-Ray for ML?	Trace latency across distributed inference microservices	mla-c01::Domain4_Ops
+[HF] Cost Explorer for ML?	Analyze spend by tag, service, instance type	mla-c01::Domain4_Ops
+[HF] AWS Budgets?	Alert when ML spend exceeds threshold	mla-c01::Domain4_Ops
+[HF] Trusted Advisor cost?	Rightsizing and idle resource recommendations	mla-c01::Domain4_Ops
+[HF] Tagging strategy for ML?	Allocate cost by team/project/environment	mla-c01::Domain4_Ops
+[HF] Compute Optimizer?	Recommends optimal instance types from utilization history	mla-c01::Domain4_Ops
+[HF] Rightsizing inference?	Downsize over-provisioned instances after Inference Recommender	mla-c01::Domain4_Ops
+[HF] Savings Plans vs Reserved Instances?	Flexible compute commitment vs specific instance reservation	mla-c01::Domain4_Ops
+[HF] Spot Instances best for?	Fault-tolerant, checkpointed training workloads	mla-c01::Domain4_Ops
+[HF] Provisioned concurrency analogy?	Keep models warm — related to serverless/lambda concepts	mla-c01::Domain4_Ops
+IAM least privilege for SageMaker?	Role limited to required S3 prefixes, KMS keys, ECR repos	mla-c01::Domain4_Ops
+SageMaker in VPC?	No direct internet; use NAT or VPC endpoints for S3/ECR	mla-c01::Domain4_Ops
+Security groups?	Control inbound/outbound traffic to training/inference instances	mla-c01::Domain4_Ops
+KMS key rotation?	Security compliance for encrypted model artifacts	mla-c01::Domain4_Ops
+Secrets Manager use?	Store DB credentials for feature pipelines not in code	mla-c01::Domain4_Ops
+A/B test in production?	Traffic split between production variants	mla-c01::Domain4_Ops
+Retrain trigger from Monitor?	EventBridge rule when drift exceeds threshold	mla-c01::Domain4_Ops
+QuickSight dashboard?	Business-visible ML KPIs and monitoring	mla-c01::Domain4_Ops
+CloudWatch Logs Insights?	Query inference logs for errors	mla-c01::Domain4_Ops
+Lambda Insights?	Monitor serverless components in ML pipeline	mla-c01::Domain4_Ops
+Service quotas issue?	Request limit increase for training jobs or endpoints	mla-c01::Domain4_Ops
+Latency troubleshooting order?	Check instance size, model size, network, auto scaling	mla-c01::Domain4_Ops
+Scaling issue symptom?	Throttling, high latency under load — add instances or scale policy	mla-c01::Domain4_Ops
+Audit compliance?	CloudTrail + encrypted artifacts + access logs	mla-c01::Domain4_Ops
+Amazon Q in scope?	AI assistant — awareness for exam service list	mla-c01::Domain4_Ops
+Fraud Detector monitoring?	Managed service reduces custom monitor setup	mla-c01::Domain4_Ops
+Personalize campaign monitoring?	Real-time metrics for recommendation quality	mla-c01::Domain4_Ops
+Model explainability in production?	Clarify SHAP for regulatory scenarios	mla-c01::Domain4_Ops
+PII in logs problem?	Mask or exclude; use Macie	mla-c01::Domain4_Ops
+Encryption in transit?	TLS for all API and HTTPS inference clients	mla-c01::Domain4_Ops
+VPC endpoint for S3?	Private access without internet gateway	mla-c01::Domain4_Ops
+IAM policy evaluation order?	Explicit deny wins; least privilege design	mla-c01::Domain4_Ops
+Cross-account model sharing?	IAM roles and resource policies on S3/ECR	mla-c01::Domain4_Ops
+Compliance framework exam?	Choose encryption + logging + access control bundle	mla-c01::Domain4_Ops
+Infrastructure event monitoring?	EventBridge for state changes	mla-c01::Domain4_Ops
+Model rollback?	Deploy previous approved Registry version to production variant	mla-c01::Domain4_Ops
+Cost anomaly?	Budgets alert + Cost Explorer anomaly detection awareness	mla-c01::Domain4_Ops
+Multi-AZ for inference?	High availability across Availability Zones	mla-c01::Domain4_Ops
+Fault tolerance training?	Checkpointing and multi-AZ storage	mla-c01::Domain4_Ops
+Observability triad?	Metrics CloudWatch, Logs CloudWatch, Traces X-Ray	mla-c01::Domain4_Ops
+Maintenance window?	Schedule pipeline retrain during low traffic	mla-c01::Domain4_Ops
+Technical debt ML exam?	Monitor drift and automate retrain pipelines	mla-c01::Domain4_Ops
+[HF] MLA-C01 passing score?	720 on scale 100-1000	mla-c01::Cross_Exam
+[HF] MLA-C01 exam duration?	130 minutes	mla-c01::Cross_Exam
+[HF] Scored questions count?	50 scored (15 unscored pilot)	mla-c01::Cross_Exam
+[HF] Compensatory scoring means?	Pass overall exam; no minimum per domain	mla-c01::Cross_Exam
+[HF] April 2025 exam update?	English skills list refreshed — use latest exam guide	mla-c01::Cross_Exam
+[HF] New question types MLA-C01?	Ordering, matching, case study	mla-c01::Cross_Exam
+[HF] MLS vs MLA focus?	MLS theory-heavy retired; MLA MLOps production	mla-c01::Cross_Exam
+[HF] Exam penalty for guessing?	No penalty — answer every question	mla-c01::Cross_Exam
+[HF] Service short names in exam?	Available via Help button during test	mla-c01::Cross_Exam
+[HF] Ideal candidate experience?	1 year SageMaker + 1 year ML engineering related role	mla-c01::Cross_Exam
